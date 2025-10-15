@@ -1,0 +1,108 @@
+#order {
+  padding: 60px 0;
+  position: relative;
+  .deleteAll {
+    position: absolute;
+    bottom: -200px;
+    right: 280px;
+    width: 184px;
+    height: 60px;
+    background: rgba(32, 149, 58, 1);
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: 3%;
+    color: white;
+    border-radius: 10px;
+  }
+  .container {
+    .order {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      &--card {
+        width: 886px;
+        height: 130px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background: rgb(217, 217, 217);
+        position: relative;
+        img {
+          width: 186px;
+          height: 103px;
+          object-fit: cover;
+        }
+        &__article {
+          display: flex;
+          flex-direction: column;
+
+          background: none;
+          gap: 20px;
+          h2 {
+            font-weight: 500;
+            font-size: 36px;
+            letter-spacing: 3%;
+            color: black;
+            background: none;
+          }
+          h3 {
+            font-weight: 500;
+            font-size: 24px;
+            letter-spacing: 3%;
+            color: black;
+            background: none;
+          }
+        }
+        &__delete {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          background: none;
+
+          button {
+            width: 188px;
+            height: 40px;
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 3%;
+            color: white;
+            border-radius: 10px;
+            background: rgba(189, 29, 29, 1);
+          }
+          &--count {
+            display: flex;
+            align-items: center;
+            gap: 68px;
+            background: none;
+            position: relative;
+
+            button {
+              width: 60px;
+              height: 44px;
+              border-radius: 10px;
+              font-weight: 500;
+              font-size: 36px;
+              letter-spacing: 3%;
+              background: none;
+              color: black;
+            }
+            h3 {
+              font-weight: 500;
+              font-size: 24px;
+              letter-spacing: 3%;
+              color: black;
+              background: none;
+              position: absolute;
+              right: 77px;  
+
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

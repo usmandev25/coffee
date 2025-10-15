@@ -1,0 +1,62 @@
+#menu {
+  padding: 60px 0;
+  .container {
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 170px;
+      flex-wrap: wrap;
+      &--card {
+        width: 337px;
+        height: 300px;
+        border-radius: 15px;
+        background: rgba(217, 217, 217, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 15px 15px;
+        img {
+          width: 301px;
+          height: 167px;
+          border-radius: 15px;
+          object-fit: cover;
+        }
+        h1 {
+          font-weight: 500;
+          font-size: 24px;
+          color: black;
+          background: none;
+          letter-spacing: 3%;
+        }
+        &__nav {
+          display: flex;
+          align-items: center;
+          background: none;
+          gap: 18px;
+          h2 {
+            font-weight: 500;
+            font-size: 24px;
+            letter-spacing: 3%;
+            color: black;
+            background: none;
+            min-width: 130px;
+          }
+          button {
+            width: 154px;
+            height: 40px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 3%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(221, 170, 39, 1);
+          }
+        }
+      }
+    }
+  }
+}

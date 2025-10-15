@@ -1,0 +1,1 @@
+export const API_KEY:string = "https://api-crud.elcho.dev/api/v1/84cae-6b2a3-5070b/menu"
