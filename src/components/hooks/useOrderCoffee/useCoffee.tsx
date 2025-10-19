@@ -1,9 +1,16 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import type { ICartCoffee, ICoffeeState, IGetCoffee } from "../../types/types";
+import type {
+  ICartCoffee,
+  IClientData,
+  ICoffeeState,
+  IGetCoffee,
+} from "../../types/types";
 
 const initialState = {
   cart: [] as ICartCoffee[],
+  client: [] as IClientData[],
+  modal: [] as ICartCoffee[],
 };
 
 const coffeeStore = (set: any, get: any) => ({
@@ -43,7 +50,20 @@ const coffeeStore = (set: any, get: any) => ({
     const updateCart = cart.filter((el: ICartCoffee) => el._id !== id);
     set({ cart: updateCart });
   },
-  deleteAllCoffee: () => set({ cart: [] }),
+  deleteAllCoffee: () => {
+    set({ cart: [] });
+  },
+  pushModalCoffee: (body: ICartCoffee[]) => {
+    const modal = get().modal;
+    set({ modal: body });
+  },
+
+  // cart thet's all //
+  // clientData start //
+  pushClientData: (body: IClientData) => {
+    const client = get().client;
+    set({ client: [...client, body] });
+  },
 });
 
 export const useCoffee = create<ICoffeeState>(
@@ -51,5 +71,19 @@ export const useCoffee = create<ICoffeeState>(
     name: "basket",
     storage: createJSONStorage(() => localStorage),
     partialize: (state) => ({ cart: state.cart }),
+  })
+);
+export const useClient = create<ICoffeeState>(
+  persist(coffeeStore, {
+    name: "client",
+    storage: createJSONStorage(() => localStorage),
+    partialize: (state) => ({ client: state.client }),
+  })
+);
+export const useModal = create<ICoffeeState>(
+  persist(coffeeStore, {
+    name: "modal",
+    storage: createJSONStorage(() => localStorage),
+    partialize: (state) => ({ modal: state.modal }),
   })
 );

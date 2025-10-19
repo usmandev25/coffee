@@ -23,12 +23,27 @@ export interface IAction {
   incrementCount: (id: number) => void;
   deleteCart: (id: number) => void;
   deleteAllCoffee: () => void;
+  pushModalCoffee: (body: ICartCoffee[]) => void;
+  // cart thet's all //
+  // clientData start //
+  pushClientData: (body: IClientData) => void;
 }
 
 export interface IInitialState {
   cart: ICartCoffee[];
+  client: IClientData[];
+  modal: ICartCoffee[]
 }
 export interface ICoffeeState extends IInitialState, IAction {}
 export interface ICartCoffee extends IGetCoffee {
   count: number;
+}
+
+export interface IClientData {
+  name: string;
+  number: number;
+  card: string;
+  adress: string;
+  code: number;
+  city: string;
 }

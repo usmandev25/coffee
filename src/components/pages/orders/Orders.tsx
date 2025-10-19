@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { useGetCoffee } from "../../hooks/useGetCoffee/useGetCoffee";
 import { useCoffee } from "../../hooks/useOrderCoffee/useCoffee";
 import "./Orders.scss";
 const Orders = () => {
-  const { cart, decrementCount, incrementCount, deleteCart, deleteAllCoffee } = useCoffee();
+  const { cart, decrementCount, incrementCount, deleteCart, deleteAllCoffee, pushModalCoffee} =
+    useCoffee();
   const { isLoading, error, isError } = useGetCoffee();
+  const nav = useNavigate()
   console.log(cart, "cart");
 
   if (isError) {
@@ -21,7 +24,7 @@ const Orders = () => {
           ) : (
             cart.map((el) => (
               <div className="order--card" key={el._id}>
-                <img src={el.image} alt="img" />
+                <img src={el.image} alt={el.title} />
                 <div className="order--card__article">
                   <h2>{el.title}</h2>
                   <h3>{el.price} $</h3>
@@ -40,7 +43,13 @@ const Orders = () => {
         </div>
       </div>
       <center>
-        <button className="deleteAll" onClick={() => deleteAllCoffee()}>to order</button>
+        <button className="deleteAll" onClick={() => {
+          pushModalCoffee(cart);
+          nav("/clientData");
+          deleteAllCoffee()
+        }}>
+          to order
+        </button>
       </center>
     </div>
   );

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import "./admin.scss";
 import type { IPostProduct } from "../../types/types";
 import { usePostCoffee } from "../../hooks/usePostCoffee/usePostCoffee";
+import { Link } from "react-router-dom";
 const Admin = () => {
   const { register, handleSubmit, reset } = useForm<IPostProduct>();
   const { mutate, error, isError, isPending } = usePostCoffee();
@@ -15,6 +16,11 @@ const Admin = () => {
   return (
     <form onSubmit={handleSubmit(handleData)}>
       <div id="admin">
+        <div className="adminModal">
+          <Link to={"/admin"}>add</Link>
+          <Link to={"/adminList"}>list</Link>
+          <Link to={"/adminOrders"}>orders</Link>
+        </div>
         <div className="container">
           <center>
             <h1>CREATE PRODUCT</h1>
