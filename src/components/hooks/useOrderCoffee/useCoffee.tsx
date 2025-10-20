@@ -54,7 +54,6 @@ const coffeeStore = (set: any, get: any) => ({
     set({ cart: [] });
   },
   pushModalCoffee: (body: ICartCoffee[]) => {
-    const modal = get().modal;
     set({ modal: body });
   },
 

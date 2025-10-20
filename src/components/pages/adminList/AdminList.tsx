@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AdminList.scss";
 import { useGetCoffee } from "../../hooks/useGetCoffee/useGetCoffee";
 import { useDeleteCoffee } from "../../hooks/useDeleteCoffee/useDeleteCoffee";
+import { useGetOneCoffee } from "../../hooks/useGetOneCoffee/useGetOneCoffee";
 const AdminList = () => {
   const { data, isError, isLoading, error } = useGetCoffee();
-  const {mutate} = useDeleteCoffee()
+  const { mutate } = useDeleteCoffee();
+  const nav = useNavigate();
 
   if (isError) {
     return <h1>{error.message}</h1>;
@@ -17,7 +19,13 @@ const AdminList = () => {
         <Link to={"/adminOrders"}>orders</Link>
       </div>
       <div className="container">
-        <center style={{ fontSize: "40px", paddingBottom: "30px", transform: "translatex(-200px)" }}>
+        <center
+          style={{
+            fontSize: "40px",
+            paddingBottom: "30px",
+            transform: "translatex(-200px)",
+          }}
+        >
           Admin List
         </center>
         <div className="adminList">
@@ -25,7 +33,7 @@ const AdminList = () => {
             <h1>Loading...</h1>
           ) : (
             data?.map((el) => (
-              <div className="adminList--card">
+              <div className="adminList--card" key={el._id}>
                 <div className="adminList--card__data">
                   <img src={el.image} alt={el.title} />
                   <div className="adminList--card__data--text">
@@ -35,7 +43,13 @@ const AdminList = () => {
                 </div>
                 <div className="adminList--card__btn">
                   <button onClick={() => mutate(el._id)}>delete</button>
-                  <button>edit</button>
+                  <button
+                    onClick={() => {
+                      nav(`/edit/${el._id}`);
+                    }}
+                  >
+                    edit
+                  </button>
                 </div>
               </div>
             ))

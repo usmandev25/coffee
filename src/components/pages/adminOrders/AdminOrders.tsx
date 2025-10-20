@@ -3,7 +3,7 @@ import "./AdminOrders.scss";
 import { useClient, useCoffee } from "../../hooks/useOrderCoffee/useCoffee";
 const AdminOrders = () => {
   const { client } = useClient();
-  const { cart } = useCoffee();
+  const { modal } = useCoffee();
   console.log(client, "client");
 
   return (
@@ -29,7 +29,7 @@ const AdminOrders = () => {
                   <h1>adress: {el.adress}</h1>
                 </div>
                 <div className="adminOrders--block__card--article">
-                  {cart.map((el) => (
+                  {modal.map((el) => (
                     <div className="adminOrders--block__card--article__item">
                       <h1>{el.title}</h1>
                       <h1>${el.price}</h1>

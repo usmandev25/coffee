@@ -32,7 +32,7 @@ export interface IAction {
 export interface IInitialState {
   cart: ICartCoffee[];
   client: IClientData[];
-  modal: ICartCoffee[]
+  modal: ICartCoffee[];
 }
 export interface ICoffeeState extends IInitialState, IAction {}
 export interface ICartCoffee extends IGetCoffee {
@@ -46,4 +46,9 @@ export interface IClientData {
   adress: string;
   code: number;
   city: string;
+}
+
+export interface IPatch {
+  id: string | undefined;
+  patchProduct: IPostProduct;
 }

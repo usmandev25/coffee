@@ -3,9 +3,11 @@ import "./admin.scss";
 import type { IPostProduct } from "../../types/types";
 import { usePostCoffee } from "../../hooks/usePostCoffee/usePostCoffee";
 import { Link } from "react-router-dom";
+import { useGetOneCoffee } from "../../hooks/useGetOneCoffee/useGetOneCoffee";
 const Admin = () => {
   const { register, handleSubmit, reset } = useForm<IPostProduct>();
   const { mutate, error, isError, isPending } = usePostCoffee();
+  
   const handleData = (data: IPostProduct) => {
     mutate(data)
     reset();

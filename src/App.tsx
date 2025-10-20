@@ -6,6 +6,7 @@ import Orders from "./components/pages/orders/Orders";
 import AdminList from "./components/pages/adminList/AdminList";
 import AdminOrders from "./components/pages/adminOrders/AdminOrders";
 import ClientData from "./components/pages/clientData/ClientData";
+import Edit from "./components/pages/edit/Edit";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/clientData" element={<ClientData />} />
         <Route path="/adminList" element={<AdminList />} />
         <Route path="/adminOrders" element={<AdminOrders />} />
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
     </div>
   );
